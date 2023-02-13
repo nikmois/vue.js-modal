@@ -1,26 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="app">
+        <my-button class="btn" @click="showModal">Nupp 1</my-button>
+        <modal-window v-model:show="modalVisible"/>
+        
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ModalWindow from "@/components/ModalWindow";
+import MyButton from "@/components/UI/MyButton";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    components: {
+        ModalWindow, MyButton
+    },
+    data() {
+        return {
+            modalVisible: false,
+        }
+    },
+    methods: {
+        showModal() {
+            this.modalVisible = true
+        }
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app{
+    background: rgb(211, 211, 252);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>
